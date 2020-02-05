@@ -1,0 +1,58 @@
+<blockquote class="blockquote text-center">
+  <p class="mb-0">{{ title }}</p>
+  <footer class="blockquote-footer">{{ conclusion }}
+     <!-- <cite title="Source Title">Source Title</cite> -->
+     </footer>
+</blockquote>
+<!-- ========================================= -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" >
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">Get by Id </p>
+      </blockquote>
+      <form>
+          <div class="form-group">
+            <label for="employee_id">Enter Employee Id</label>
+            <input type="number" class="form-control" name="employee_id" aria-describedby="eIdHelp" [(ngModel)]="empId">
+            <small id="eIdHelp" class="form-text text-muted">Enter employee id to get records ( employee id exist from 1 to 24 ) </small>
+          </div>
+
+          <button type="button" class="btn btn-info" (click)="getRecordById()">Get by ID</button>
+
+          <button type="button" class="btn btn-info" (click)="getRecords()">Get All</button>
+    
+          <button type="button"  class="btn btn-info" (click)="resetRecords()">Reset</button>
+  
+    </form>
+    <p class="text-info">{{ serverResponse }}</p>
+    </div>
+  </div>
+  <!-- Display table -->
+  <br>
+   <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of empRecord">
+            <td> {{ item.id }} </td>
+            <td> {{ item.employee_name }} </td>
+            <td> {{ item.employee_salary }} </td>
+            <td> {{ item.employee_age }} </td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
